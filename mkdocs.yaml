@@ -3,7 +3,7 @@ site_description: 'Genome Blog by the hCNV Community'
 site_author: Michael Baudis
 copyright: ''
 repo_name: 'genome-blog'
-
+site_url: https://hcnv.github.io/genome-blog
 repo_url: https://github.com/hcnv/genome-blog
 edit_uri: edit/main/docs/
 
