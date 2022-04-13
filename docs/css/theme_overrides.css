@@ -15,7 +15,7 @@ nav.md-tabs {
 }
 
 .md-header__source {
-    background-image: url("/img/elixir-white-48x36.svg");
+    background-image: url("../img/elixir-white-48x36.svg");
     background-repeat: no-repeat;
     background-position: right; 
 }
