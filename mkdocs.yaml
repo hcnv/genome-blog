@@ -10,8 +10,9 @@ edit_uri: edit/main/docs/
 ###############################################################################
 
 nav:
-  - hCNV News Home: index.md
+  # - hCNV News Home: index.md
   - Genome Blog: blog/index.md
+  - hCNV Community Home: http://cnvar.org
 
 ###############################################################################
 
@@ -55,9 +56,9 @@ theme:
   # name: readthedocs
   name: material
   palette:
-    primary: deep orange
+    primary: indigo
   favicon: img/site-logo-topright.png
-  logo: img/site-logo-topright.png
+  # logo: img/hCNV-logo-100x100.png
   icon:
     repo: fontawesome/brands/github-alt
     admonition:
@@ -66,9 +67,11 @@ theme:
     - content.tabs.link
     - search.highlight
     - search.share
-    - navigation.instant
-    - navigation.tracking
-    - navigation.sections
+    # - navigation.instant
+    # - navigation.tracking
+    # - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
     - toc.integrate
   custom_dir: overrides
       
@@ -84,7 +87,6 @@ extra:
   blog:
     dir: blog
     author: hCNV
-#    author_image: img/site-logo-topright.png
     list_length: 50
     extended_preview: true
     excerpt_separator: <!--more-->
@@ -94,7 +96,7 @@ extra:
     - icon: fontawesome/brands/github 
       link: https://github.com/hcnv
 extra_css:
-  - css/extra.css
+  - css/theme_overrides.css
 extra_javascript:
   # - https://unpkg.com/mermaid/dist/mermaid.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
