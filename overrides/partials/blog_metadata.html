@@ -1,0 +1,20 @@
+<aside class="blog-post-aside">
+  {% if config.extra.blog.author_image is defined %}
+    <p>
+      <img alt={{ config.extra.blog.author }} src={{ config.extra.blog.author_image }}>
+    </p>
+  {% endif %}
+  <p>
+    <span>
+      {% if config.extra.blog.author %}
+        <strong>{{ config.extra.blog.author }}</strong>
+         ·
+      {% endif %}
+      {% include "partials/blog_social.html" %}
+      <span class="twemoji">
+        {% include ".icons/octicons/calendar-24.svg" %}
+      </span>
+      {{ page.meta.date.strftime("%B %d, %Y") }}
+    </span>
+  </p>
+</aside>
