@@ -52,12 +52,11 @@ markdown_extensions:
 ###############################################################################
 
 theme:
-  # name: readthedocs
   name: material
   palette:
     primary: indigo
-  favicon: img/site-logo-topright.png
-  # logo: img/hCNV-logo-100x100.png
+  favicon: img/hCNV-logo.svg
+  # logo: img/hCNV-logo.svg
   icon:
     repo: fontawesome/brands/github-alt
     admonition:

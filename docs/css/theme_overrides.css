@@ -14,8 +14,12 @@ nav.md-tabs {
   background-color:  var(--md-accent-fg-color);
 }
 
+/*.md-header__button {
+    padding:  0px; 
+}
+*/
 .md-header__source {
-    background-image: url("../img/elixir-white-48x36.svg");
+    background-image: url("../img/hCNV-Elixir-logo.svg");
     background-repeat: no-repeat;
     background-position: right; 
 }
