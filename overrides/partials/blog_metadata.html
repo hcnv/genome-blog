@@ -6,6 +6,9 @@
           {% set auth = page.meta.author.replace("@", "") %}
             <strong><a href="https://github.com/{{auth}}">{{ page.meta.author }}</a></strong>
         {% endif %}
+        {% if not "@" in page.meta.author %}
+            <strong>{{ page.meta.author }}</strong>
+        {% endif %}
       {% endif %}
       {% include "partials/blog_social.html" %}
       <span class="twemoji">

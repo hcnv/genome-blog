@@ -89,10 +89,8 @@ extra:
     # - icon: fontawesome/brands/twitter 
     #   link: https://twitter.com/progenetix
     - icon: fontawesome/brands/github 
-      link: https://github.com/hcnv
+      link: https://github.com/hcnv/genome-blog/tree/main/docs/blog
 extra_css:
   - css/theme_overrides.css
-extra_javascript:
-  # - https://unpkg.com/mermaid/dist/mermaid.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+
     
