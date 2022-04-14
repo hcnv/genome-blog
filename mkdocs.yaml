@@ -10,8 +10,7 @@ edit_uri: edit/main/docs/
 ###############################################################################
 
 nav:
-  # - hCNV News Home: index.md
-  - Genome Blog: blog/index.md
+  - Genome Blog: index.md
   - hCNV Community Home: http://cnvar.org
 
 ###############################################################################
