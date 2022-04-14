@@ -9,10 +9,10 @@ hide:
   - toc
 ---
 
-**Note** This post appeared first (on WordPress hosted genome.blog) on 2017-04-13 and has been slightly edited to provide the evolution of the
-concepts. The post is a reminder of the hiostory of some data structures now implemented throughout GA4GH aligned projects.
+!!! Note "Historical Post"
 
----
+    This post appeared first (on WordPress hosted genome.blog) on 2017-04-13 and has been slightly edited to provide the evolution of the
+    concepts. The post is a reminder of the history of some data structures now implemented throughout GA4GH aligned projects.
 
 While developing the (metadata-)schema for the [Global Alliance for Genomics and Health](http://ga4gh.org), the Metadata Task Team decided (after, well, many hours of telecons) to use an object based model with a limited number of attributes. In place of specific, named attributes, emphasis is being put on the use of ontologies, which, in principle, provide their own scoping. Diagnoses, phenotypes, species assignment and other “biocharacteristics” were to be represented in as “OntologyTerm” objects, using schema-external ontology services such as EBI’s OLS.
 
