@@ -6,4 +6,3 @@ hide:
   - navigation
   - toc
 ---
-# Genome Blog
