@@ -9,7 +9,7 @@ hide:
   - toc
 ---
 
-!!! Note "Historical Post"
+!!! Warning "Historical Post"
 
     This post appeared first (on WordPress hosted genome.blog) on 2017-04-13 and has been slightly edited to provide the evolution of the
     concepts. The post is a reminder of the history of some data structures now implemented throughout GA4GH aligned projects.
