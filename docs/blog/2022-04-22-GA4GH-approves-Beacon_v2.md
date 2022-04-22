@@ -9,7 +9,7 @@ hide:
   - toc
 ---
 
-At its Spring 2022 GA4GH Connect stakeholder meeting in Montreal (and online...) the
+![Beacon logo](../img/logo_beacon_80x200.png){align=right width=40}At its Spring 2022 GA4GH Connect stakeholder meeting in Montreal (and online...) the
 steering committee of the Global Alliance for Genomics and Health ([GA4GH](http://ga4gh.org))
 approved the major "v2" update of the Beacon protocol as official GA4GH standard.
 
