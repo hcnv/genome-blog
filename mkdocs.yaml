@@ -5,7 +5,7 @@ copyright: ''
 repo_name: 'genome-blog'
 site_url: https://genome.blog
 repo_url: https://github.com/hcnv/genome-blog
-edit_uri: edit/main/docs/blog
+edit_uri: https://github.com/hcnv/genome-blog/tree/main/docs/blog
 
 ###############################################################################
 
