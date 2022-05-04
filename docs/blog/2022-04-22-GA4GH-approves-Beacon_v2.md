@@ -13,12 +13,12 @@ hide:
 steering committee of the Global Alliance for Genomics and Health ([GA4GH](http://ga4gh.org))
 approved the major "v2" update of the Beacon protocol as official GA4GH standard.
 
-<!--more-->
-
 <figure markdown>
   ![Beacon v2 Cartoon](../img/Beacon-Networks-v2-graphics-Michael.003.png){ width="750" }
   <figcaption>A visualization of some Beacon v2 concepts (from [docs.genomebeacons.org](http://docs.genomebeacons.org)</figcaption>
 </figure>
+
+<!--more-->
 
 Beacon v2 represents a major revision of the original concept, with a completely new code base
 and a focus on high flexibility through its modular design. The Beacon code base includes
