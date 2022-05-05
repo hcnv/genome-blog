@@ -14,7 +14,7 @@ steering committee of the Global Alliance for Genomics and Health ([GA4GH](http:
 approved the major "v2" update of the Beacon protocol as official GA4GH standard.
 
 <figure markdown>
-  ![Beacon v2 Cartoon](../img/Beacon-Networks-v2-graphics-Michael.003.png){ width="750" }
+  ![Beacon v2 Cartoon](https://cnvar.org/genome-blog/img/Beacon-Networks-v2-graphics-Michael.003.png){ width="640" }
   <figcaption>A visualization of some Beacon v2 concepts (from [docs.genomebeacons.org](http://docs.genomebeacons.org)</figcaption>
 </figure>
 
