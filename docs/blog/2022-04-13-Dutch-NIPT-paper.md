@@ -3,7 +3,8 @@ template: blog_post.html
 title: CNVs in Prenatal Tests & Maternal Malignancies
 description: Publication indicating rare CNV signatures from a nationwide Dutch screening program 
 date: 2022-04-13
-author: "@mbaudis"
+authors:
+  - "@mbaudis"
 hide:
   - navigation
   - toc

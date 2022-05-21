@@ -3,7 +3,8 @@ template: blog_post.html
 title: Markers, Markers Everywhere - Will they Kill Me? Should I Care?
 description: Reporting of SNVs identified in GWAS studies in news
 date: 2018-03-22
-author: "@mbaudis"
+authors:
+  - "@mbaudis"
 hide:
   - navigation
   - toc

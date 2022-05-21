@@ -3,7 +3,8 @@ template: blog_post.html
 title: GA4GH Approves Beacon v2
 description: A major step towards federated analysis of biomedical genomics data 
 date: 2022-04-22
-author: "@mbaudis"
+authors:
+  - "@mbaudis"
 hide:
   - navigation
   - toc

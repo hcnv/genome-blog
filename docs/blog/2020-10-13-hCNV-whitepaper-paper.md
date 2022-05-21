@@ -3,7 +3,8 @@ template: blog_post.html
 title: The ELIXIR Human Copy Number Variations Community
 description: Whitepaper from the ELIXIR hCNV community
 date: 2020-10-13
-author: "@mbaudis"
+authors:
+  - "@mbaudis"
 hide:
   - navigation
   - toc

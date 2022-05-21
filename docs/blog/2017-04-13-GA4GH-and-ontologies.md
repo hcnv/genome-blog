@@ -3,7 +3,8 @@ template: blog_post.html
 title: GA4GH implementation study - Making ontologies work
 description: Diagnoses, phenotypes, species assignment and other “biocharacteristics” represented as “OntologyTerm” objects
 date: 2022-04-03
-author: "@mbaudis"
+authors:
+  - "@mbaudis"
 hide:
   - navigation
   - toc
