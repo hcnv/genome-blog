@@ -1,7 +1,7 @@
 ---
 template: blog_post.html
-title: Width and height of somatic copy number variations
-description: Discussing different classes of somatic CNVs
+title: Types of Genomic Copy Number Variations
+description: Classification of CNVs based on CN level and genomic size
 date: 2022-05-23
 authors:
   - "@hangjiaz"
@@ -10,13 +10,21 @@ hide:
   - toc
 ---
 
+Genomic copy number variations can be quantified in two general dimensions - through their size
+and through their count. Both of these quantities can be expressed as absolute (e.g. base count,
+total allele number) and relative (e.g. chromosomal fraction involved, uncalibrated CN measurement
+value such as log2 ratio) values. Empirically - and to overcome a number of issues of exact CN count
+calibrations - a classification into a number CN types has become "standard opreating procedure" although
+the details of those classes differ to some extend. This post attempts to summarize some previous use
+cases and emerging standards.
+
+<!--more-->
+
 Most somatic CNVs are either very short (focal) or almost the length of a chromosome arm or whole 
 chromosome (arm-level)[^1]. The arm-level change was first visualized more than a hundred years ago. 
 Abnormal chromosome structures and numbers can affect large genomic regions. With the development of 
 array and sequencing technologies, the detection of smaller focal CNV is possible. It sometimes 
 targets cancer-causing genes.
-
-<!--more-->
 
 The background rates of both level somatic CNVs are different. The occurrence of focal CNVs is negatively 
 associated with their length. Arm-level CNVs occur more frequently than expected by the inverse-length 
@@ -28,10 +36,10 @@ genomic elements and relevant functions. However, the definition of amplificatio
 Generally, it means multiple copies of chromosomal segments, but the exact copy number threshold 
 to define amplification is not consistent in multiple studies, varying from 4 to 9 or more flexible (Table 1). 
 
-#### Table 1
+#### Varying Definitions of "High Level" Gain CNVs
 
 |  Study ID & link | Study name| Threshold (>=) | 
-|---|---|---|
+| ---- | ---- | :--: |
 | [PMID21494657](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0018369) | Network-Guided Analysis of Genes with Altered Somatic Copy Number and Gene Expression Reveals Pathways Commonly Perturbed in Metastatic Melanoma | 4 |   
 | [PMID17161620](https://www.sciencedirect.com/science/article/pii/S1044579X06000988?via%3Dihub) | Specificity, selection and significance of gene amplifications in cancer | 5 |    
 | [PMID32024823](https://www.nature.com/articles/s41467-019-13885-w) | High-coverage whole-genome analysis of 1220 cancers reveals hundreds of genes deregulated by rearrangement-mediated cis-regulatory alterations | 5 |    
