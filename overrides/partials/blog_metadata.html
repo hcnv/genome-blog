@@ -1,16 +1,15 @@
 <aside class="blog-post-aside">
   <p>
     <span>
+      {% set auth_list = [] %}
       {% if page.meta.authors %}
         {% for author in page.meta.authors %}
           {% if "@" in author %}
-            {% set auth = author.replace("@", "") %}
-              <strong><a href="https://github.com/{{auth}}">{{ author }}</a></strong>
+            {% set author = '<a href="https://github.com/'+author.replace("@", "")+'">'+author+'</a>' %}
           {% endif %}
-          {% if not "@" in author %}
-              <strong>{{ author }}</strong>
-          {% endif %}
+          {% set auth_list = auth_list.append("<strong>"+author+"</strong>") %}
         {% endfor %}
+        {{ auth_list|join(" & ") }}
       {% endif %}
       {% include "partials/blog_social.html" %}
       <span class="twemoji">
