@@ -12,6 +12,7 @@ edit_uri: edit/master/docs/blog
 nav:
   - Genome Blog: index.md
   - hCNV Community Home: http://cnvar.org
+  - Info: info.md
 
 ###############################################################################
 

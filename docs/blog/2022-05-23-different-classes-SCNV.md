@@ -5,30 +5,37 @@ description: Classification of CNVs based on CN level and genomic size
 date: 2022-05-23
 authors:
   - "@hangjiaz"
+  - "mbaudis"
 hide:
   - navigation
   - toc
 ---
 
 Genomic copy number variations can be quantified in two general dimensions - through their size
-and through their count. Both of these quantities can be expressed as absolute (e.g. base count,
+and through the divergence from the expected regional allele count. Both of these quantities can be expressed as absolute (e.g. base count,
 total allele number) and relative (e.g. chromosomal fraction involved, uncalibrated CN measurement
 value such as log2 ratio) values. Empirically - and to overcome a number of issues of exact CN count
 calibrations - a classification into a number CN types has become "standard opreating procedure" although
-the details of those classes differ to some extend. This post attempts to summarize some previous use
-cases and emerging standards.
+the details of those classes differ to some extend. This post attempts to summarize some previous annotation practices
+and emerging standards for CNV annotation, especially with respect to somatic CNVs and cancer genomics.
 
 <!--more-->
 
-Most somatic CNVs are either very short (focal) or almost the length of a chromosome arm or whole 
-chromosome (arm-level)[^1]. The arm-level change was first visualized more than a hundred years ago. 
-Abnormal chromosome structures and numbers can affect large genomic regions. With the development of 
-array and sequencing technologies, the detection of smaller focal CNV is possible. It sometimes 
-targets cancer-causing genes.
+With various types of molecular accidents leading to regional changes in the number of copies
+of alleles from a given genomic region, such CNVs can broadly be separated into "cytogenetic" or
+"arm-level" changes[^1] which arise from errors in chomosomal distribution during cellular division
+with or without structural chromosomal rearrangements, and "focal" CNVs based on DNA replication errors with smaller
+(_i.e._ [sub-]megabase) deletions or (intra or extrachromosomal) multi-copy duplications[^2]. While the role of
+disease-related, arm- and chromosome-level CNVs in cancer still is poorly understood, focal CNVs frequently
+involve the genomic locations of genes with known involvement in neoplastic processes.
 
-The background rates of both level somatic CNVs are different. The occurrence of focal CNVs is negatively 
+
+
+The background rates of both size classes of somatic CNVs are different. The occurrence of focal CNVs is negatively 
 associated with their length. Arm-level CNVs occur more frequently than expected by the inverse-length 
-distribution related to focal CNVs, which applies to all cancer types. The amplitudes of 
+distribution related to focal CNVs, which applies to all cancer types.
+
+The amplitudes of 
 these somatic CNVs are also not the same. All arm-level CNVs and many focal CNVs are of low amplitude 
 while some focal CNVs can reach very high amplitude, such as amplification or homozygous deletion. 
 The definition of high-amplitude deletion is clear. It usually represents a complete loss of 
@@ -61,4 +68,5 @@ both types of somatic CNVs is important and required. Currently, there are sever
 specify different classes of CNV. More details can be found in the comparison table from [Beacon v2 documentation](http://docs.genomebeacons.org/variant-queries/#term-use-comparison).
 
 
-[^1]: Beroukhim, Rameen, et al. "The landscape of somatic copy-number alteration across human cancers." Nature 463.7283 (2010): 899-905.
+[^1]: This represents an approximation and doesn't try to address the - fascinating - biology of genomic rearrangements such as chromothripsis, katagesis etc. Maybe another time...
+[^2]: Beroukhim, Rameen, et al. "The landscape of somatic copy-number alteration across human cancers." Nature 463.7283 (2010): 899-905.
