@@ -20,13 +20,13 @@ general anaeuplodization events with preceding and/or followed by regional CNV e
 
 Copy number changes can be expressed as absolute (total allele count) and relative (e.g. uncalibrated CN measurements
 such as log2 ratio) values. Empirically - and to overcome a number of issues of exact CN count
-calibrations - a classification into a number CN types has become "standard opreating procedure" with details
-differing to some extend. This post attempts to summarize some previous annotation practices
+calibrations - a classification into a number CN types has become "standard operating procedure" with details
+differing to some extent. This post attempts to summarize some previous annotation practices
 and emerging standards for CNV annotation, especially with respect to somatic CNVs and cancer genomics.
 
 <!--more-->
 
-Additional measures which have been used some of those classification attempts have been:
+Additional measures which have been used in some of those classification attempts have been:
 
 1. the locality of additional copies of genomic regions in gain CNVs
 2. the size of the CNV events
@@ -37,13 +37,13 @@ mechanism (such as "chromothripsis", "katagesis" etc.) constitute special cases 
 many tandem duplications) can be considered gene specific structural alterations more than "dosage events".
 
 Regarding the CNV size, CNVs can broadly be separated into "cytogenetic" or
-"arm-level" changes[^1] which arise from errors in chomosomal distribution during cellular division
+"arm-level" changes[^1] which arise from errors in chromosomal distribution during cellular division
 with or without structural chromosomal rearrangements, and "focal" CNVs based on DNA replication errors with smaller
 (_i.e._ [sub-]megabase) deletions or (intra or extrachromosomal) multi-copy duplications[^2]. While the role of
 disease-related, arm- and chromosome-level CNVs in cancer still is poorly understood, focal CNVs frequently
 involve the genomic locations of genes with known involvement in neoplastic processes.
 
-Importantly, the magnitude of these of CNV size classes may differ. All arm-level gain CNVs and many focal CNVs
+Importantly, the magnitude of these CNV size classes may differ. All arm-level gain CNVs and many focal CNVs
 have a low divergence in CN count while some focal CNVs can reach very high relative magnitude, such as an amplification
 with tens or hundreds of copies. However, the definition of genomic amplification is ambiguous. Generally, it means multiple copies of chromosomal segments, but the exact copy number threshold to define amplification is not consistent in multiple studies, varying from 4 to 9 or more (Table 1). 
 
