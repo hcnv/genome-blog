@@ -68,7 +68,8 @@ specify different classes of CNV. More details can be found in the comparison ta
 | ---- | ---- | :--: |
 | [PMID:21494657](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0018369) | Network-Guided Analysis of Genes with Altered Somatic Copy Number and Gene Expression Reveals Pathways Commonly Perturbed in Metastatic Melanoma | 4 |   
 | [PMID:17161620](https://www.sciencedirect.com/science/article/pii/S1044579X06000988?via%3Dihub) | Specificity, selection and significance of gene amplifications in cancer | 5 |    
-| [PMID:32024823](https://www.nature.com/articles/s41467-019-13885-w) | High-coverage whole-genome analysis of 1220 cancers reveals hundreds of genes deregulated by rearrangement-mediated cis-regulatory alterations | 5 |    
+| [PMID:32024823](https://www.nature.com/articles/s41467-019-13885-w) | High-coverage whole-genome analysis of 1220 cancers reveals hundreds of genes deregulated by rearrangement-mediated cis-regulatory alterations | 5 | 
+| [PMID:35524475](https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbac161/6582004) | Refinement of computational identification of somatic copy number alterations using DNA methylation microarrays illustrated in cancers of unknown primary | 5 |   
 | [PMID:25719666](https://www.nature.com/articles/nature14169) | Whole genomes redefine the mutational landscape of pancreatic cancer | 6 |   
 | [DOI:10.1036/ommbid.321](https://ommbid.mhmedical.com/content.aspx?bookId=2709&sectionId=225073577)  | Gene Amplification in Human Cancers: Biological and Clinical Significance| 7 |
 | [PMID:25110350](https://www.sciencedirect.com/science/article/pii/S0167488914003000?via%3Dihub) | Focal chromosomal copy number aberrations in cancer—Needles in a genome haystack | 9 |   
