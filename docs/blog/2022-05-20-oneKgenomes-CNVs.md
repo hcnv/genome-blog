@@ -2,7 +2,7 @@
 template: blog_post.html
 title: 1000 Genomes CNV reference data 
 description: An API for the WGS-based reference dataset of CNVs in the <i>1000 Genomes</i> samples 
-date: 2023-05-20
+date: 2022-05-20
 authors:
   - "@ziyingyang96"
   - "@mbaudis"
