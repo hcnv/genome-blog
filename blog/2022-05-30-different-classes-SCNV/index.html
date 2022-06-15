@@ -1,0 +1,626 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Classification of CNVs based on CN level and genomic size">
+      
+      
+        <meta name="author" content="Michael Baudis">
+      
+      
+        <link rel="canonical" href="https://genome.blog/blog/2022-05-30-different-classes-SCNV/">
+      
+      <link rel="icon" href="../../img/hCNV-logo.svg">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.5">
+    
+    
+      
+        <title>Types of Genomic Copy Number Variations - Genome Blog by the hCNV Community</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.604 3.089A.75.75 0 0 1 4 3.75V8.5h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 1 1 0-1.5h.75V5.151l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037zM8.75 5.5a.75.75 0 0 0 0 1.5h11.5a.75.75 0 0 0 0-1.5H8.75zm0 6a.75.75 0 0 0 0 1.5h11.5a.75.75 0 0 0 0-1.5H8.75zm0 6a.75.75 0 0 0 0 1.5h11.5a.75.75 0 0 0 0-1.5H8.75zM5.5 15.75c0-.704-.271-1.286-.72-1.686a2.302 2.302 0 0 0-1.53-.564c-.535 0-1.094.178-1.53.565-.449.399-.72.982-.72 1.685a.75.75 0 0 0 1.5 0c0-.296.104-.464.217-.564A.805.805 0 0 1 3.25 15c.215 0 .406.072.533.185.113.101.217.268.217.565 0 .332-.069.48-.21.657-.092.113-.216.24-.403.419l-.147.14c-.152.144-.33.313-.52.504l-1.5 1.5a.75.75 0 0 0-.22.53v.25c0 .414.336.75.75.75H5A.75.75 0 0 0 5 19H3.31l.47-.47c.176-.176.333-.324.48-.465l.165-.156a5.98 5.98 0 0 0 .536-.566c.358-.447.539-.925.539-1.593z"/></svg>');}</style>
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/theme_overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#purported-effects-of-cnv-classes-in-oncogenomics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Genome Blog by the hCNV Community" class="md-header__button md-logo" aria-label="Genome Blog by the hCNV Community" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Genome Blog by the hCNV Community
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Types of Genomic Copy Number Variations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hcnv/genome-blog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    genome-blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Genome Blog
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="http://cnvar.org" class="md-tabs__link">
+      hCNV Community Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../info/" class="md-tabs__link">
+      Info
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Genome Blog by the hCNV Community" class="md-nav__button md-logo" aria-label="Genome Blog by the hCNV Community" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Genome Blog by the hCNV Community
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hcnv/genome-blog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    genome-blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Genome Blog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://cnvar.org" class="md-nav__link">
+        hCNV Community Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+  <h1>Types of Genomic Copy Number Variations</h1>
+  <p>
+    <b>Classification of CNVs based on CN level and genomic size</b>
+  </p>
+  <aside class="blog-post-aside">
+  <p>
+    <span>
+      
+      
+        
+          
+            
+          
+          
+        
+          
+            
+          
+          
+        
+        <strong><a href="https://github.com/hangjiaz">@hangjiaz</a></strong> & <strong><a href="https://github.com/mbaudis">@mbaudis</a></strong>
+      
+      
+    
+    
+      
+      
+        
+        
+      
+      
+      <a href="https://github.com/hcnv/genome-blog/tree/main/docs/blog" target="_blank" rel="noopener" title="github.com" class="twemoji">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+      
+    
+
+      <span class="twemoji">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.75 0a.75.75 0 0 1 .75.75V3h9V.75a.75.75 0 0 1 1.5 0V3h2.75c.966 0 1.75.784 1.75 1.75v16a1.75 1.75 0 0 1-1.75 1.75H3.25a1.75 1.75 0 0 1-1.75-1.75v-16C1.5 3.784 2.284 3 3.25 3H6V.75A.75.75 0 0 1 6.75 0zm-3.5 4.5a.25.25 0 0 0-.25.25V8h18V4.75a.25.25 0 0 0-.25-.25H3.25zM21 9.5H3v11.25c0 .138.112.25.25.25h17.5a.25.25 0 0 0 .25-.25V9.5z"/></svg>
+      </span>
+      May 30, 2022
+    </span>
+  </p>
+</aside>
+  <hr>
+  <p>Genomic copy number variations can affect the production of proteins through their modification
+of the "dosage" (i.e. number of alleles) of genes covered by the CNV as well as through the
+(in)complete disruption of coding or regulatory elements. The supposed effects depend on the
+magnitude of change, <em>i.e.</em> the number of gained or lost copies. Especially in cancer cells the
+"normal" allele count for the given genomic region has to be considered: Cancer genomes may have undergone
+general anaeuplodization events with preceding and/or followed by regional CNV events.</p>
+<p>Copy number changes can be expressed as absolute (total allele count) and relative (e.g. uncalibrated CN measurements
+such as log2 ratio) values. Empirically - and to overcome a number of issues of exact CN count
+calibrations - a classification into a number CN types has become "standard operating procedure" with details
+differing to some extent. This post attempts to summarize some previous annotation practices
+and emerging standards for CNV annotation, especially with respect to somatic CNVs and cancer genomics.</p>
+<!--more-->
+
+<p>Additional measures which have been used in some of those classification attempts have been:</p>
+<ol>
+<li>the locality of additional copies of genomic regions in gain CNVs</li>
+<li>the size of the CNV events</li>
+<li>an overall context or inferred mechanism</li>
+</ol>
+<p>Here we will mostly consider 2 - the CNV size - where it makes sense; the locality or overall
+mechanism (such as "chromothripsis", "katagesis" etc.) constitute special cases which in some cases (e.g.
+many tandem duplications) can be considered gene specific structural alterations more than "dosage events".</p>
+<p>Regarding the CNV size, CNVs can broadly be separated into "cytogenetic" or
+"arm-level" changes<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> which arise from errors in chromosomal distribution during cellular division
+with or without structural chromosomal rearrangements, and "focal" CNVs based on DNA replication errors with smaller
+(<em>i.e.</em> [sub-]megabase) deletions or (intra or extrachromosomal) multi-copy duplications<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. While the role of
+disease-related, arm- and chromosome-level CNVs in cancer still is poorly understood, focal CNVs frequently
+involve the genomic locations of genes with known involvement in neoplastic processes.</p>
+<p>Importantly, the magnitude of these CNV size classes may differ. All arm-level gain CNVs and many focal CNVs
+have a low divergence in CN count while some focal CNVs can reach very high relative magnitude, such as an amplification
+with tens or hundreds of copies. However, the definition of genomic amplification is ambiguous. Generally, it means multiple copies of chromosomal segments, but the exact copy number threshold to define amplification is not consistent in multiple studies, varying from 4 to 9 or more (Table 1). </p>
+<p>For deletions, the definition of high-magnitude deletion is clear. It usually represents a complete loss of 
+genomic elements and relevant functions. </p>
+<h3 id="purported-effects-of-cnv-classes-in-oncogenomics">Purported Effects of CNV "Classes" in Oncogenomics<a class="headerlink" href="#purported-effects-of-cnv-classes-in-oncogenomics" title="Permanent link">&para;</a></h3>
+<p>The observation that high-amplitude focal CNVs often occur in specific regions where tumor 
+oncogenes and suppressor genes locate indicates that this type of CNV is possible to contain 
+the optimal chromosomal segments for promotion of cancer development and thus has great power 
+to discover cancer-related genes. The prevalence of low-amplitude chromosomal arm-level CNVs
+in cancer patients shows a close relationship between CNV and molecular properties of cancer cells. 
+The length and amplitude of somatic CNVs determine distinct classes of somatic CNVs. They are 
+different in occurrence frequency and impact on genomic components. A better understanding of 
+both types of somatic CNVs is important and required. Currently, there are several standards and ontologies to 
+specify different classes of CNV. More details can be found in the comparison table 2 (taken from the <a href="http://docs.genomebeacons.org/variant-queries/#term-use-comparison">Beacon v2 documentation</a>).</p>
+<h3 id="varying-definitions-of-high-level-gain-cnvs">Varying Definitions of "High Level" Gain CNVs<a class="headerlink" href="#varying-definitions-of-high-level-gain-cnvs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Study ID &amp; link</th>
+<th>Study name</th>
+<th align="center">Threshold (&gt;=)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0018369">PMID:21494657</a></td>
+<td>Network-Guided Analysis of Genes with Altered Somatic Copy Number and Gene Expression Reveals Pathways Commonly Perturbed in Metastatic Melanoma</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td><a href="https://www.sciencedirect.com/science/article/pii/S1044579X06000988?via%3Dihub">PMID:17161620</a></td>
+<td>Specificity, selection and significance of gene amplifications in cancer</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td><a href="https://www.nature.com/articles/s41467-019-13885-w">PMID:32024823</a></td>
+<td>High-coverage whole-genome analysis of 1220 cancers reveals hundreds of genes deregulated by rearrangement-mediated cis-regulatory alterations</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td><a href="https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbac161/6582004">PMID:35524475</a></td>
+<td>Refinement of computational identification of somatic copy number alterations using DNA methylation microarrays illustrated in cancers of unknown primary</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td><a href="https://www.nature.com/articles/nature14169">PMID:25719666</a></td>
+<td>Whole genomes redefine the mutational landscape of pancreatic cancer</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td><a href="https://ommbid.mhmedical.com/content.aspx?bookId=2709&amp;sectionId=225073577">DOI:10.1036/ommbid.321</a></td>
+<td>Gene Amplification in Human Cancers: Biological and Clinical Significance</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td><a href="https://www.sciencedirect.com/science/article/pii/S0167488914003000?via%3Dihub">PMID:25110350</a></td>
+<td>Focal chromosomal copy number aberrations in cancer—Needles in a genome haystack</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td><a href="https://cancer.sanger.ac.uk/cosmic/help/cnv/overview">COSMIC database</a></td>
+<td></td>
+<td align="center">5 if ploidy &lt;= 2.7 <br> 9 if ploidy &gt; 2.7</td>
+</tr>
+<tr>
+<td><a href="https://www.nejm.org/doi/10.1056/NEJMoa1616288">PMID:28445112</a></td>
+<td>Tracking the Evolution of Non–Small-Cell Lung Cancer</td>
+<td align="center">2 x ploidy + 1</td>
+</tr>
+<tr>
+<td><a href="https://www.science.org/doi/10.1126/science.aaf8399">PMID:28104840</a></td>
+<td>Tumor aneuploidy correlates with markers of immune evasion and with reduced response to immunotherapy</td>
+<td align="center">logR &gt;= 1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-cnv-classification-based-on-relative-cn-alterations">A CNV Classification Based on Relative CN Alterations<a class="headerlink" href="#a-cnv-classification-based-on-relative-cn-alterations" title="Permanent link">&para;</a></h2>
+<p>In 2021 - based on a recognized need to formalize the representation of relative CN value classes
+as a concept capturing general usage scenarios from cancer genomics and genetics while
+accommodating different data generation practices - we proposed a set of basic CNV classes for
+adoption by the Experimental Factor Ontology, following discussions with members of the hCNV community
+and the GA4GH Variant Representation Standard working group.</p>
+<h3 id="term-use-comparison">Term Use Comparison<a class="headerlink" href="#term-use-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Beacon</th>
+<th><a href="https://samtools.github.io/hts-specs/">VCF</a></th>
+<th>SO</th>
+<th><a href="http://www.ebi.ac.uk/efo/EFO_0030063">EFO</a></th>
+<th><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber">VRS</a></th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DUP</code></td>
+<td><code>DUP</code><sup id="fnref7:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001742"><code>SO:0001742</code></a> copy_number_gain</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030070"><code>EFO:0030070</code></a> copy&nbsp;number&nbsp;gain</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>low-level gain</code></a> (implicit)</td>
+<td>a sequence alteration whereby the copy number of a given genomic region is greater than the reference sequence</td>
+</tr>
+<tr>
+<td><code>DUP</code></td>
+<td><code>DUP</code><sup id="fnref6:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001742"><code>SO:0001742</code></a> copy_number_gain</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030071"><code>EFO:0030071</code></a> low-level copy number gain</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>low-level gain</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DUP</code></td>
+<td><code>DUP</code><sup id="fnref5:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001742"><code>SO:0001742</code></a> copy_number_gain</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030072"><code>EFO:0030072</code></a> high-level copy number gain</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>high-level gain</code></a></td>
+<td>commonly but not consistently used for &gt;=5 copies on a bi-allelic genome region</td>
+</tr>
+<tr>
+<td><code>DUP</code></td>
+<td><code>DUP</code><sup id="fnref4:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001742"><code>SO:0001742</code></a> copy_number_gain</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030073"><code>EFO:0030073</code></a> focal genome amplification</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>high-level gain</code></a></td>
+<td>commonly but not consistently used for &gt;=5 copies on a bi-allelic genome region, of limited size (operationally max. 1-5Mb)</td>
+</tr>
+<tr>
+<td><code>DEL</code></td>
+<td><code>DEL</code><sup id="fnref3:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001743"><code>SO:0001743</code></a> copy_number_loss</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030067"><code>EFO:0030067</code></a> copy number loss</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>partial loss</code></a> (implicit)</td>
+<td>a sequence alteration whereby the copy number of a given genomic region is smaller than the reference sequence</td>
+</tr>
+<tr>
+<td><code>DEL</code></td>
+<td><code>DEL</code><sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001743"><code>SO:0001743</code></a> copy_number_loss</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030068"><code>EFO:0030068</code></a> low-level copy number loss</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>partial loss</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DEL</code></td>
+<td><code>DEL</code><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td><a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001743"><code>SO:0001743</code></a> copy_number_loss</td>
+<td><a href="http://www.ebi.ac.uk/efo/EFO_0030069"><code>EFO:0030069</code></a> complete genomic deletion</td>
+<td><a href="https://vrs.ga4gh.org/en/latest/terms_and_model.html#relativecopynumber"><code>complete loss</code></a></td>
+<td>complete genomic deletion (e.g. homozygous deletion on a bi-allelic genome region)</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This represents an approximation and doesn't try to address the - fascinating - biology of genomic rearrangements such as chromothripsis, katagesis etc. Maybe another time...&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Beroukhim, Rameen, et al. "The landscape of somatic copy-number alteration across human cancers." Nature 463.7283 (2010): 899-905.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>VCFv4.4 introduces an <code>SVCLAIM</code> field to disambiguate between <em>in situ</em> events (such as
+tandem duplications; known <em>adjacency</em>/ <em>break junction</em>: <code>SVCLAIM=J</code>) and events where e.g. only the
+change in <em>abundance</em> / <em>read depth</em> (<code>SVCLAIM=D</code>) has been determined. Both <strong>J</strong> and <strong>D</strong> flags can be combined.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/hcnv/genome-blog/tree/main/docs/blog" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "search.highlight", "search.share", "navigation.tabs", "navigation.tabs.sticky", "toc.integrate"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.431f3d41.min.js"></script>
+      
+    
+  </body>
+</html>
